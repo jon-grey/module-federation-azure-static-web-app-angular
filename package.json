@@ -1,5 +1,5 @@
 {
-  "name": "mf-demo",
+  "name": "sample-app-module-federation-azure-web-app-angular-azure",
   "version": "0.0.0",
   "scripts": {
     "ng": "yarn",
