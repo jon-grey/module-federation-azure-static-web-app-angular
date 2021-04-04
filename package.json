@@ -19,10 +19,10 @@
     "build:shell": "ng build shell --watch",
     "build:mfe1": "ng build mfe1 --watch",
 
-    "build-prod": "concurrently --kill-others \"npm run clean\" \"npm run build-prod-lib:*\" \"npm run build-prod:shell\" \"npm run build-prod:mfe1\"",
+    "build-prod": "concurrently --kill-others \"npm run clean\" \"npm run build-prod-lib:*\" \"ng build shell --prod\" \"ng build mfe1 --prod\"",
 
-    "build-prod:shell": "concurrently \"npm run build-prod-lib:*\" \"ng build shell --prod\"",
-    "build-prod:mfe1": "concurrently \"npm run build-prod-lib:*\" \"ng build mfe1 --prod\"",
+    "build-prod:shell": "concurrently --kill-others \"npm run build-prod-lib:*\" \"ng build shell --prod\"",
+    "build-prod:mfe1": "concurrently --kill-others \"npm run build-prod-lib:*\" \"ng build mfe1 --prod\"",
 
     "build-prod-lib:ui-lib": "ng build ui-lib --prod",
     "build-prod-lib:message-bus": "ng build message-bus --prod",
