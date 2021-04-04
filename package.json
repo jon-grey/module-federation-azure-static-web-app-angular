@@ -17,10 +17,16 @@
     "start:mfe1": "ng serve mfe1 -o --port 3000",
 
     "build": "concurrently --kill-others --restart-tries 100 --restart-after 1000 \"npm run clean\" \"npm run build:*\"",
+
     "build:shell": "ng build shell --watch",
     "build:mfe1": "ng build mfe1 --watch",
     "build:ui-lib": "ng build ui-lib --watch",
     "build:message-bus": "ng build message-bus --watch",
+
+    "build-prod:shell": "ng build shell --prod",
+    "build-prod:mfe1": "ng build mfe1 --prod",
+    "build-prod:ui-lib": "ng build ui-lib  --prod",
+    "build-prod:message-bus": "ng build message-bus  --prod",
 
     "serve:dist": "concurrently --kill-others \"serve dist/shell -l 5000 -s\" \"serve dist/mfe1 -l 3000 -s\" ",
 
