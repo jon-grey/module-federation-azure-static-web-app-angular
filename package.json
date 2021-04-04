@@ -9,8 +9,6 @@
     "devall": "concurrently \"npm run clean\" \"npm run build:*\" \"npm run dev:*\"",
     "dev:shell": "npm run build:shell && npm run start:shell",
     "dev:mfe1": "npm run build:mfe1 && npm run start:mfe1",
-    "dev:message-bus": "npm run build:message-bus",
-    "dev:ui-lib": "npm run build:ui-lib",
 
     "start": "concurrently --kill-others \"npm run start:*\"",
     "start:shell": "ng serve shell  -o --port 5000",
@@ -20,13 +18,9 @@
 
     "build:shell": "ng build shell --watch",
     "build:mfe1": "ng build mfe1 --watch",
-    "build:ui-lib": "ng build ui-lib --watch",
-    "build:message-bus": "ng build message-bus --watch",
 
     "build-prod:shell": "ng build shell --prod",
     "build-prod:mfe1": "ng build mfe1 --prod",
-    "build-prod:ui-lib": "ng build ui-lib  --prod",
-    "build-prod:message-bus": "ng build message-bus  --prod",
 
     "serve:dist": "concurrently --kill-others \"serve dist/shell -l 5000 -s\" \"serve dist/mfe1 -l 3000 -s\" ",
 
@@ -62,6 +56,8 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
+    "ui-lib": "file:./projects/ui-lib",
+    "message-bus": "file:./projects/message-bus",
     "@angular-devkit/build-angular": "0.1100.0",
     "@angular/cli": "11.0.0",
     "@angular/compiler-cli": "11.0.0",
