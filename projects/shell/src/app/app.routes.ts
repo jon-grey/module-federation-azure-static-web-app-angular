@@ -16,26 +16,26 @@ export const APP_ROUTES: Routes = [
   // Uncomment to load remote microfrontend route from angular:
   // *) Static Federation from Webpack - comment below
   // **) Dynamic Federation from Angular - uncomment below
-  {
-    path: 'flights',
-    loadChildren: () =>
-      loadRemoteModule({
-        // **)*) Load remote entry at bootstrap - comment below
-        // remoteEntry: 'http://localhost:3000/remoteEntry.js',
-        remoteName: 'mfe1',
-        exposedModule: './Module'
-      })
-        .then(m => m.FlightsModule),
-    data: { animation: 'flights' }
-  },
+  // {
+  //   path: 'flights',
+  //   loadChildren: () =>
+  //     loadRemoteModule({
+  //       // ***) Load remote entry at bootstrap - comment below
+  //       // remoteEntry: 'http://localhost:3000/remoteEntry.js',
+  //       remoteName: 'mfe1',
+  //       exposedModule: './Module'
+  //     })
+  //       .then(m => m.FlightsModule),
+  //   data: { animation: 'flights' }
+  // },
 
   // *) Static Federation from Webpack - uncomment below
   // **) Dynamic Federation from Angular - comment below
   // Dynamic imports via lazy loading of modules
-  // {
-  //   path: 'flights',
-  //   loadChildren: () => import('mfe1/Module').then(m => m.FlightsModule)
-  // },
+  {
+    path: 'flights',
+    loadChildren: () => import('mfe1/Module').catch(err => import('mfe1-dev/Module')).then(m => m.FlightsModule)
+  },
 
   // {
   //   path: 'admin',
