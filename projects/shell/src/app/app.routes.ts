@@ -20,7 +20,7 @@ export const APP_ROUTES: Routes = [
     path: 'flights',
     loadChildren: () =>
       loadRemoteModule({
-        // **)*) Load remote entry at bootstrap - comment below
+        // ***) Load remote entry at bootstrap - comment below
         // remoteEntry: 'http://localhost:3000/remoteEntry.js',
         remoteName: 'mfe1',
         exposedModule: './Module'
@@ -34,7 +34,7 @@ export const APP_ROUTES: Routes = [
   // Dynamic imports via lazy loading of modules
   // {
   //   path: 'flights',
-  //   loadChildren: () => import('mfe1/Module').then(m => m.FlightsModule)
+  //   loadChildren: () => import('mfe1/Module').catch(err => import('mfe1-dev/Module')).then(m => m.FlightsModule)
   // },
 
   // {

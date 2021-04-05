@@ -29,7 +29,13 @@ module.exports = {
         // **) Dynamic Federation from Angular - comment below
         // For hosts (please adjust) -> update shell/src/{main.ts,*/app.routes.ts}:
         // remotes: {
+<<<<<<< Updated upstream
         //     "mfe1": "mfe1@http://localhost:3000/remoteEntry.js",
+=======
+        //   // cant have both, last entry with same key persists, so we add `-dev`
+        //   "mfe1": "mfe1@https://salmon-moss-0f41c3910.azurestaticapps.net/remoteEntry.js",
+        //   "mfe1-dev": "mfe1@http://localhost:3000/remoteEntry.js",
+>>>>>>> Stashed changes
         // },
 
         shared: {
