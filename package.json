@@ -6,7 +6,7 @@
     "clean": "rimraf dist",
 
     "dev": "concurrently --kill-others \"npm run build\" \"npm run start\"",
-    "devall": "concurrently \"npm run clean\" \"npm run build:*\" \"npm run dev:*\"",
+    "devall": "concurrently \"npm run clean\" \"npm run build-lib:*\" \"npm run dev:*\"",
     "dev:shell": "npm run build:shell && npm run start:shell",
     "dev:mfe1": "npm run build:mfe1 && npm run start:mfe1",
 
@@ -14,19 +14,21 @@
     "start:shell": "ng serve shell  -o --port 5000",
     "start:mfe1": "ng serve mfe1 -o --port 3000",
 
-    "build": "concurrently --kill-others --restart-tries 100 --restart-after 1000 \"npm run clean\" \"npm run build:*\"",
+    "build": "concurrently --kill-others --restart-tries 100 --restart-after 1000 \"npm run clean\" \"npm run build-lib:*\" \"npm run build:*\"",
 
     "build:shell": "ng build shell --watch",
     "build:mfe1": "ng build mfe1 --watch",
+    "build-lib:ui-lib": "ng build ui-lib --watch",
+    "build-lib:message-bus": "ng build message-bus --watch",
 
-    "build-prod": "concurrently --kill-others \"npm run clean\" \"npm run build-prod-lib:*\" \"ng build shell --prod\" \"ng build mfe1 --prod\"",
-
-    "build-prod:shell": "concurrently --kill-others \"npm run build-prod-lib:*\" \"ng build shell --prod\"",
-    "build-prod:mfe1": "concurrently --kill-others \"npm run build-prod-lib:*\" \"ng build mfe1 --prod\"",
-
+    "build-prod:shell": "ng build shell --prod",
+    "build-prod:mfe1": "ng build mfe1 --prod",
     "build-prod-lib:ui-lib": "ng build ui-lib --prod",
     "build-prod-lib:message-bus": "ng build message-bus --prod",
 
+    "azure:build-prod": "concurrently --kill-others \"npm run clean\" \"npm run build-prod-lib:*\" \"npm run build-prod:*\"",
+    "azure:build-prod:shell": "concurrently --kill-others \"npm run build-prod:lib:*\" \"npm run build-prod:shell\"",
+    "azure:build-prod:mfe1": "concurrently --kill-others \"npm run build-prod:lib:*\" \"npm run build-prod:mfe1\"",
 
     "serve:dist": "concurrently --kill-others \"serve dist/shell -l 5000 -s\" \"serve dist/mfe1 -l 3000 -s\" ",
 
