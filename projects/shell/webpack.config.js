@@ -28,9 +28,9 @@ module.exports = {
         // *) Static Federation from Webpack - Angular do not know about it
         // **) Dynamic Federation from Angular - comment below
         // For hosts (please adjust) -> update shell/src/{main.ts,*/app.routes.ts}:
-        // remotes: {
-        //     "mfe1": "mfe1@http://localhost:3000/remoteEntry.js",
-        // },
+        remotes: {
+            "mfe1": "mfe1@http://localhost:3000/remoteEntry.js",
+        },
 
         shared: {
           "@angular/core": { singleton: true, strictVersion: true },

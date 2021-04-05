@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  vars: {
+    mfe1_remote_entry: {
+      'prod': 'https://salmon-moss-0f41c3910.azurestaticapps.net/remoteEntry.js',
+      'dev': 'http://localhost:3000/remoteEntry.js'
+    }
+  },
 };
 
 /*

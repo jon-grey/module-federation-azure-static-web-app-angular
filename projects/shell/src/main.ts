@@ -2,12 +2,14 @@
 // import('./bootstrap')
 // .catch(err => console.error(err));
 
+// **) Dynamic Federation from Angular - uncomment below
 // ***) Load remote entry up front to avoid dynamic lazy loading
-import {loadRemoteEntry } from "@angular-architects/module-federation";
+import { loadRemoteEntry } from '@angular-architects/module-federation';
+import { environment as env } from './environments/environment';
 
-loadRemoteEntry('http://localhost:3000/remoteEntry.js', 'mfe1')
-.catch(err => console.error(err))
-loadRemoteEntry('https://salmon-moss-0f41c3910.azurestaticapps.net/remoteEntry.js', 'mfe1')
-.catch(err => console.error(err))
-.then(_ => import('./bootstrap'))
-.catch(err => console.error(err));
+const remoteEntryMfe1 = env.vars.mfe1_remote_entry[env.production ? 'prod' : 'dev'];
+
+loadRemoteEntry(remoteEntryMfe1, 'mfe1')
+  .catch((err) => console.error(err))
+  .then((_) => import('./bootstrap'))
+  .catch((err) => console.error(err));
