@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  mfe1_remote_entry: 'http://localhost:3000/remoteEntry.js'
 };
 
 /*
