@@ -1,4 +1,4 @@
-// *)
+// *) Static Federation from Webpack - uncomment below
 // import('./bootstrap')
 // .catch(err => console.error(err));
 
